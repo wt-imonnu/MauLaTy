@@ -86,16 +86,20 @@ section {
 }
 
 .border-gradient {
+    color: white;
     margin: 20px 0;
     background: linear-gradient(90deg,
-            #f82eb5,
-            #3d0a44,
-            #3d0a44,
-            #3d0a44,
-            #f82eb5);
+            #f5b239,
+            #f9773d,
+            #d04f13,
+            #f9773d,
+            #f5b239);
     padding: 10px 800px;
-    border-radius: 50px;
+    border-radius: 500px;
+    line-height: 1;
+    display: inline-block;
 }
+
 
 .categories-item {
     display: flex;
@@ -126,19 +130,21 @@ section {
 }
 
 .gallery-filter .filter-item.active {
-    color: #ff00c8;
-    border-color: #ff00c8;
+    color: #f5b239;
+    border-color: #f5b239;
 }
 
 /* Gallery Image Section */
 .row {
     columns: 300px;
     column-gap: 20px;
-    column-count: 3; 
+    column-count: 4; 
+    
 }
 .box img{
     width: 100%;
     margin: 10px 0;
+    scale: 80px 50px;
 }
 .box{
     transition: transform .3s ease-out;
@@ -149,6 +155,7 @@ section {
 .container2 .box img {
     max-width: 100%;
     border-radius: 20px;
+    
 }
 
 /* Hide images initially if they don't match filter */

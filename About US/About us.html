@@ -28,19 +28,20 @@
 </head>
 <body>
 
-
 <button onclick="topFunction()" id="myBtn" title="Go to top">&uarr;</button>
 <script src="Nevigation&BackToTop_JavS.js"></script>
 
 <div class="container">
+  
   <div class="carousel">
-            <div class="carousel-inner">
-        <img src="placeholder1.jpg" alt="Image 1">
-        <img src="placeholder1.jpg" alt="Image 2">
-        <img src="placeholder1.jpg" alt="Image 3">
-        <img src="placeholder1.jpg" alt="Image 4">
-        <img src="placeholder1.jpg" alt="Image 5">
-             </div>
+        <img src="Ten.png" alt="Content Writers"> 
+        <img src="Dear.png" alt="Artists">
+        <img src="Irin.png" alt="3D Modelers">
+        <img src="May.png" alt="Web Designers">
+        <img src="Mean.png" alt="Marketing Strategist">
+        <img src="New.png" alt="Character Designers">
+        <img src="Ping.png" alt="Photographers">
+        <img src="Stefan.png" alt="Programmers">
   </div>
   <div class="text-container">
     <span class="headertext">We're a group of</span><div class="typing-text" id="typing-text"></div>
@@ -48,75 +49,129 @@
     <div class="subtext">And these people are the right tool for the job.</div>
 </div>
 
-
-
 <script src="RollingText.js"></script>
 
 
   </div>
 </div>
-    <div class="team-container">
-        <div class="team-member">
-          <img src="https://via.placeholder.com/150" alt="Name 1">
-          <p class="name">Name 1</p>
-          <p class="title">Title 1</p>
-          <p class="detail">Detail 1</p>
-        </div>
-        <div class="team-member">
-          <img src="https://via.placeholder.com/150" alt="Name 2">
-          <p class="name">Name 2</p>
-          <p class="title">Title 2</p>
-          <p class="detail">Detail 2</p>
-        </div>
-        <div class="team-member">
-          <img src="https://via.placeholder.com/150" alt="Name 3">
-          <p class="name">Name 3</p>
-          <p class="title">Title 3</p>
-          <p class="detail">Detail 3</p>
-        </div>
-        <div class="team-member">
-            <img src="https://via.placeholder.com/150" alt="Name 3">
-            <p class="name">Name 3</p>
-            <p class="title">Title 3</p>
-            <p class="detail">Detail 3</p>
-          </div>
-          <div class="team-member">
-            <img src="https://via.placeholder.com/150" alt="Name 3">
-            <p class="name">Name 3</p>
-            <p class="title">Title 3</p>
-            <p class="detail">Detail 3</p>
-          </div>
-          <div class="team-member">
-            <img src="https://via.placeholder.com/150" alt="Name 3">
-            <p class="name">Name 3</p>
-            <p class="title">Title 3</p>
-            <p class="detail">Detail 3</p>
-          </div>
-          <div class="team-member">
-            <img src="https://via.placeholder.com/150" alt="Name 3">
-            <p class="name">Name 3</p>
-            <p class="title">Title 3</p>
-            <p class="detail">Detail 3</p>
-          </div>
-          <div class="team-member">
-            <img src="https://via.placeholder.com/150" alt="Name 3">
-            <p class="name">Name 3</p>
-            <p class="title">Title 3</p>
-            <p class="detail">Detail 3</p>
-          </div>
 
-            <div class="team-member">
-                <img src="https://via.placeholder.com/150" alt="Name 3">
-                <p class="name">Name 3</p>
-                <p class="title">Title 3</p>
-                <p class="detail">Detail 3</p>
-            </div>
-            <div class="team-member">
-                <img src="https://via.placeholder.com/150" alt="Name 3">
-                <p class="name">Name 3</p>
-                <p class="title">Title 3</p>
-                <p class="detail">Detail 3</p>
-            </div>
+<div class="RoleButtons">
+<button class ="RoleButton" onclick="toggleRole('All')">All Roles</button>
+<button class ="RoleButton" onclick="toggleRole('Graphic')">Graphic/Motion Designers</button>
+<button class ="RoleButton" onclick="toggleRole('Production')">Production/Marketing Agents</button>
+<button class ="RoleButton" onclick="toggleRole('Developer')">Developers</button>
+</div>
+<!-- The section in this list contains ALL members, Will sort out the roles later -->
+
+<!-- กวินทรา ศักดิ์วิเศษชัยกุล - ว่าที่ประธานคนต่อไป เพราะรอประธานคปัจจุบันลาสังขาร (artist)
+
+กัญญาวีร์ มโนการุณยวงศ์ - เมย์ไหนที่ใครในบริษัทก็สงสัย รับหน้าที่ออกแบบ ux ui พิศวง (graphic, ui designer)
+
+ธวัลกานต์ อนุนิวัฒน์ - หมาดาราหน้าบริษัท รับหน้าที่เป็นหมาถือกล้อง (3d modeler, photographer)
+
+ปราญชลี จินดาสถาน - ซินแสประจำบริษัท รับหน้าที่กำกับควบคุมลูกดวงในบริษัท (prouduction, content creator)
+
+พงศภัค ธิติโยธิน - โปรแกรมเมอร์ รับหน้าที่เป็นคนปกติที่สุดในบริษัท (motion graphic)
+
+วิมลณัฐ ทองแจ่ม - เลขา รับหน้าที่เลียแข็งเลียขาทุกคนในบริษัท (graphic, artist)
+
+อนุภาพ คงถาวร - อินฟลูดังท่านหนึ่ง รับหน้าที่เป็นพรีเซนเตอร์ดาราดังเปรี้ยงปร้าง อาวู้ววววๆ
+
+ภาวิณีย์ อุดมกรธนเสฏฐ์ - ประธานบริษัท รับหน้าที่นั่งเก้าอี้นักวาดไม่เคยเสร็จอันดับ 1 (artist)
+
+รัตนาพร ขุนรามวงศ์ - นักเขียนเกผมยาว รับหน้าที่เขียนบล็อก สร้างคอนเท็น (graphic)
+
+สุพิชญา ทรักษา - รองประธาน รับหน้าที่เป็นเซลที่มีเก้าอี้รองประธานนั่ง (graphic, drawing, character design) -->
+
+<div class="team-container"> 
+  <div class="team-member" data-role="Graphic">
+    <img src="Praewa1.jpg" alt="Name 2">
+    <p class="name">ภาวิณีย์ อุดมกรธนเสฏฐ์</p>
+    <p class="title">CEO, Lead Artist</p>
+    <p class="detail">ประธานบริษัท รับหน้าที่นั่งเก้าอี้นักวาดไม่เคยเสร็จอันดับ 1</p>
+  </div>
+  <div class="team-member" data-role="Graphic">
+      <img src="Juno1.jpg"alt="Name 1">
+      <p class="name">กวินทรา ศักดิ์วิเศษชัยกุล</p>
+      <p class="title">COO, Principal Artist</p>
+      <p class="detail">ว่าที่ประธานคนต่อไป เพราะรอประธานคปัจจุบันลาสังขาร</p>
+  </div>
+  <div class="team-member" data-role="Production">
+      <img src="Mean1.jpg" alt="Name 2">
+      <p class="name">สุพิชญา ทรักษา</p>
+      <p class="title">Co-Founder, Marketing Strategist</p>
+      <p class="detail">รองประธาน รับหน้าที่เป็นเซลที่มีเก้าอี้รองประธานนั่ง</p>
+  </div>
+  <div class="team-member" data-role="Graphic">
+    <img src="New1.jpg" alt="Name 2">
+    <p class="name">วิมลณัฐ ทองแจ่ม</p>
+    <p class="title">Artist, Character Designer</p>
+    <p class="detail">เลขา รับหน้าที่เลียแข็งเลียขาทุกคนในบริษัท</p>
+  </div>
+  <div class="team-member" data-role="Developer">
+    <img src="May1.jpg" alt="Name 3">
+    <p class="name">กัญญาวีร์ มโนการุณยวงศ์</p>
+    <p class="title">UI/UX Designer</p>
+    <p class="detail">เมย์ไหนที่ใครในบริษัทก็สงสัย รับหน้าที่ออกแบบ UX/UI พิศวง</p>
+</div>
+<div class="team-member" data-role="Production">
+  <img src="Irin1.jpg" alt="Name 2">
+  <p class="name">ธวัลกานต์ อนุนิวัฒน์</p>
+  <p class="title">3D Modeler, Photographer</p>
+  <p class="detail">หมาดาราหน้าบริษัท รับหน้าที่เป็นหมาถือกล้อง</p>
+</div>
+<div class="team-member" data-role="Production">
+  <img src="Ping1.jpg" alt="Name 2">
+  <p class="name">ปราญชลี จินดาสถาน</p>
+  <p class="title">Videographer, Video Editor</p>
+  <p class="detail">ซินแสประจำบริษัท รับหน้าที่กำกับควบคุมลูกดวงในบริษัท</p>
+</div>
+<div class="team-member" data-role="Developer">
+  <img src="Stefan1.jpg" alt="Name 2">
+  <p class="name">พงศภัค ธิติโยธิน</p>
+  <p class="title">Programmer, Back-End Developer</p>
+  <p class="detail">โปรแกรมเมอร์ รับหน้าที่เป็นคนปกติที่สุดในบริษัท</p>
+</div>
+<div class="team-member" data-role="Production">
+  <img src="Ten1.jpg" alt="Name 2">
+  <p class="name">อนุภาพ คงถาวร</p>
+  <p class="title">Actor ,Content Writer</p>
+  <p class="detail"> อินฟลูดังท่านหนึ่ง 
+    รับหน้าที่เป็นพรีเซนเตอร์ดาราดังเปรี้ยงปร้าง</p>
+</div>
+
+</div>
+
+<script>
+  function toggleRole(role) {
+      // Hide all team members
+      document.querySelectorAll('.team-member').forEach(member => {
+          member.classList.remove('active');
+      });
+
+      // Show team members with the selected role
+      if (role === 'All') {
+          document.querySelectorAll('.team-member').forEach(member => {
+              member.classList.add('active');
+          });
+      } else {
+          document.querySelectorAll(`.team-member[data-role="${role}"]`).forEach(member => {
+              member.classList.add('active');
+          });
+      }
+
+      // Update button active state
+      document.querySelectorAll('.RoleButton').forEach(button => {
+          button.classList.remove('active');
+      });
+      document.querySelector(`.RoleButton[onclick="toggleRole('${role}')"]`).classList.add('active');
+  }
+
+  // Set "All" role active by default
+  document.addEventListener('DOMContentLoaded', () => {
+      toggleRole('All');
+  });
+</script>
 
           
 </body>

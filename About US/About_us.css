@@ -1,18 +1,25 @@
 /*---------------Netivigation Bar--------------*/
 /*พื้นหลังแท้กสีดำ*/
+
+@font-face {
+font-family: "MainFont";
+src:url(https://github.com/wt-imonnu/MauLaTy/blob/Template/Font/TH%20K2D%20July8.ttf); 
+}
+
 .topnav {
     background-color: #333;
     overflow: hidden;
     position: fixed;
     top: 0;
     width: 100%;
-    font-family: TH K2D July8;
+    font-family: "MainFont";
+    z-index: 10000;
   }
   
   /* กำหนดแท้ก nav a ทั่วไป */
   .topnav a {
     float: right;
-    color: #f2f2f2;
+    color: #b36565;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -42,10 +49,10 @@
   .topnav a.text {
     float: left;
     text-align: left;
+    background-color: #333;
     margin-left: 10px;
     color: #f2f2f2;
-    background-color: #333;
-    font-family:TH K2D July8;
+    font-family: "MainFont";
   }
 
 
@@ -83,7 +90,8 @@ html {
   
 
 body {
-  flex-direction: column; /* Stack sections vertically */ 
+  flex-direction: column; /* Stack sections vertically */
+  background-image: radial-gradient(#3e2a7b, #140d27);
 }
 
 .headertext
@@ -92,64 +100,66 @@ body {
 }
 
 .container {
-    padding: 0 16px;
-    font-family: 'TH K2D July8';
-    display: flex;
-    align-items: center; /* Vertically centers the items */
-    justify-content: center; /* Horizontally centers the items */
-    margin-top: 50px;
-    height: 30vh;
-    background-color: #434343;
-  }
-  
+  font-family: "MainFont";
+  display: flex;
+  align-items: center; /* Vertically centers the items */
+  justify-content: center; /* Horizontally centers the items */
+  margin-top: 50px;
+  height: 500px;
+  background-color: #4b38d0;
+}
+
 .carousel {
-    position: relative;
-    width: 400px;
-    height: 30vh;
-    overflow: hidden;
-    margin-right: 20px;
+  position: relative;
+  width: 400px;
+  height: 500px;
+  overflow: hidden;
+  margin-right: 20px;
 }
+
 .carousel img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    animation: fadeIn 3s forwards;
-    animation-iteration-count: infinite;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  animation: fadeIn 24s infinite;
 }
+
 .carousel img:nth-child(1) {
-    animation-delay: 0s;
+  animation-delay: 0s;
 }
 .carousel img:nth-child(2) {
-    animation-delay: 3s;
+  animation-delay: 3s;
 }
 .carousel img:nth-child(3) {
-    animation-delay: 6s;
+  animation-delay: 6s;
 }
 .carousel img:nth-child(4) {
-    animation-delay: 9s;
+  animation-delay: 9s;
 }
 .carousel img:nth-child(5) {
-    animation-delay: 12s;
+  animation-delay: 12s;
 }
+.carousel img:nth-child(6) {
+  animation-delay: 15s;
+}
+.carousel img:nth-child(7) {
+  animation-delay: 18s;
+}
+.carousel img:nth-child(8) {
+  animation-delay: 21s;
+}
+
 @keyframes fadeIn {
-    0% {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    30% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-    70% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-    100% {
-        transform: translateX(100%);
-        transform: scale(75%);
-        opacity: 0;
-    }
+  0%, 12.5%, 100% {
+      opacity: 0;
+  }
+  12.5%, 25% {
+      opacity: 1;
+  }
+  25%, 87.5% {
+      opacity: 0;
+  }
 }
 
 .text-container {
@@ -161,16 +171,29 @@ body {
 .typing-text {
   margin-left: 1vw;
   font-size: 2.5vw;
-  font-weight: 900;
+  font-weight: 1000;
   max-width: 100%;
   position: absolute;
   display: inline-block;
-  color:red;
+  color:orange;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px orange, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px orange, 0 0 40px orange, 0 0 50px orange, 0 0 60px orange, 0 0 70px orange, 0 0 80px orange;
+  }
 }
 
 .typing-text::after {
   content: "|";
-  background-color: #b74b4b;
+  background-color: orange;
   position: relative;
   width: 15px;
   height: 100%;
@@ -197,33 +220,99 @@ body {
 
 
   .team-container {
-    margin:5%;
+    margin-top: 5%;
     display: flex;
     flex-wrap: wrap;                  /*  allow items to wrap  */
     justify-content: center;
     gap: 25px ;
   }
   .team-member {
-    flex-basis: calc(100% - 10x); /*  subtract the margin from the width  */
+    display: none; /* Hide all team members by default */
+    flex-basis: calc(100% - 10); /*  subtract the margin from the width  */
     color: white;
     margin: 10px;
     box-sizing: border-box; 
     text-align: center;
+    word-wrap: break-word;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   }
+
+  .team-member.active{
+    display: block; /* Show active team members */
+  }
+
   .team-member img {
-    width: 400px;
+    width: 500px;
     height: auto;
-    border-radius: 50%;
   }
   .team-member .name {
     color: red;
     font-weight: bolder;
     font-size: 2vh;
+    word-break: break-all;
   }
   .team-member .title {
     color: grey;
+    word-break: break-all;
   }
   .team-member .detail {
     color: white;
     font-size: 1vh;
+    word-break: break-all;
+    margin-bottom: 20px;
   }
+
+.RoleButtons {
+  display: flex;
+  justify-content: center; /* Center the buttons horizontally */
+  align-items: center; /* Center the buttons vertically if needed */
+  gap: 10px; /* Add some space between the buttons */
+  margin-top: 20px; /* Optional: Add some top margin */
+}
+
+.RoleButton {
+  font-family: "MainFont";
+  font-size: 17px;
+  border: none;
+  padding: 1em 1.5em;
+  color: #0a2244;
+  text-transform: uppercase;
+  position: relative;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.RoleButton::before {
+  content: "";
+  border-radius: 15px;
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+  height: 4px;
+  width: 0;
+  background-color: orange;
+  transition: 0.5s ease;
+}
+
+.RoleButton:hover,
+.RoleButton.active {
+  color: Orange;
+  transition-delay: 0.1s;
+}
+
+.RoleButton:hover::before,
+.RoleButton.active::before {
+  width: 100%;
+}
+
+.RoleButton::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 0;
+  width: 100%;
+  background-color: orange;
+  transition: 0.4s ease;
+  z-index: -1;
+}
