@@ -35,10 +35,15 @@
 <div class="container">
   <div class="carousel">
             <div class="carousel-inner">
-        <img src="placeholder1.jpg" alt="Image 1">
+        <img src="Ten.png" alt="Content Writers"> 
         <img src="placeholder1.jpg" alt="Image 2">
         <img src="placeholder1.jpg" alt="Image 3">
         <img src="placeholder1.jpg" alt="Image 4">
+        <img src="placeholder1.jpg" alt="Image 5">
+        <img src="placeholder1.jpg" alt="Image 5">
+        <img src="placeholder1.jpg" alt="Image 5">
+        <img src="placeholder1.jpg" alt="Image 5">
+        <img src="placeholder1.jpg" alt="Image 5">
         <img src="placeholder1.jpg" alt="Image 5">
              </div>
   </div>
@@ -48,75 +53,48 @@
     <div class="subtext">And these people are the right tool for the job.</div>
 </div>
 
-
-
 <script src="RollingText.js"></script>
 
 
   </div>
 </div>
-    <div class="team-container">
-        <div class="team-member">
-          <img src="https://via.placeholder.com/150" alt="Name 1">
-          <p class="name">Name 1</p>
-          <p class="title">Title 1</p>
-          <p class="detail">Detail 1</p>
-        </div>
-        <div class="team-member">
-          <img src="https://via.placeholder.com/150" alt="Name 2">
-          <p class="name">Name 2</p>
-          <p class="title">Title 2</p>
-          <p class="detail">Detail 2</p>
-        </div>
-        <div class="team-member">
-          <img src="https://via.placeholder.com/150" alt="Name 3">
-          <p class="name">Name 3</p>
-          <p class="title">Title 3</p>
-          <p class="detail">Detail 3</p>
-        </div>
-        <div class="team-member">
-            <img src="https://via.placeholder.com/150" alt="Name 3">
-            <p class="name">Name 3</p>
-            <p class="title">Title 3</p>
-            <p class="detail">Detail 3</p>
-          </div>
-          <div class="team-member">
-            <img src="https://via.placeholder.com/150" alt="Name 3">
-            <p class="name">Name 3</p>
-            <p class="title">Title 3</p>
-            <p class="detail">Detail 3</p>
-          </div>
-          <div class="team-member">
-            <img src="https://via.placeholder.com/150" alt="Name 3">
-            <p class="name">Name 3</p>
-            <p class="title">Title 3</p>
-            <p class="detail">Detail 3</p>
-          </div>
-          <div class="team-member">
-            <img src="https://via.placeholder.com/150" alt="Name 3">
-            <p class="name">Name 3</p>
-            <p class="title">Title 3</p>
-            <p class="detail">Detail 3</p>
-          </div>
-          <div class="team-member">
-            <img src="https://via.placeholder.com/150" alt="Name 3">
-            <p class="name">Name 3</p>
-            <p class="title">Title 3</p>
-            <p class="detail">Detail 3</p>
-          </div>
 
-            <div class="team-member">
-                <img src="https://via.placeholder.com/150" alt="Name 3">
-                <p class="name">Name 3</p>
-                <p class="title">Title 3</p>
-                <p class="detail">Detail 3</p>
-            </div>
-            <div class="team-member">
-                <img src="https://via.placeholder.com/150" alt="Name 3">
-                <p class="name">Name 3</p>
-                <p class="title">Title 3</p>
-                <p class="detail">Detail 3</p>
-            </div>
+<div class="RoleButtons">
+<button class ="RoleButton" onclick="toggleRole('All')">All Roles</button>
+<button class ="RoleButton" onclick="toggleRole('Graphic')">Graphic/Motion Designers</button>
+<button class ="RoleButton" onclick="toggleRole('Production')">Production/Marketing Agents</button>
+<button class ="RoleButton" onclick="toggleRole('Developer')">Developers</button>
+</div>
+<!-- The section in this list contains ALL members, Will sort out the roles later -->
+
+<div class="team-container"> 
+  <div class="team-member" data-role="All">
+      <img src="Ten.png"alt="Name 1">
+      <p class="name">กวินทรา ศักดิ์วิเศษชัยกุล</p>
+      <p class="title">CEO, Lead Artist</p>
+      <p class="detail">ว่าที่ประธานคนต่อไป เพราะรอประธานคปัจจุบันลาสังขาร</p>
+  </div>
+  <div class="team-member" data-role="Graphic">
+      <img src="https://via.placeholder.com/150" alt="Name 2">
+      <p class="name">Name 2</p>
+      <p class="title">Title 2</p>
+      <p class="detail">Detail 2</p>
+  </div>
+</div>
+
+  <script>
+    function toggleRole(role) {
+    // Hide all team members
+    document.querySelectorAll('.team-member').forEach(member => {
+        member.classList.remove('active');
+    });
+
+    // Show team members with the selected role
+    document.querySelectorAll(`.team-member[data-role="${role}"]`).forEach(member => {
+        member.classList.add('active');
+    });
+}
+  </script>
 
           
 </body>

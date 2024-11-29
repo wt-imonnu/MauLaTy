@@ -105,14 +105,14 @@ body {
     align-items: center; /* Vertically centers the items */
     justify-content: center; /* Horizontally centers the items */
     margin-top: 50px;
-    height: 30vh;
-    background-color: #434343;
+    height: 500px;
+    background-color: gray;
   }
   
 .carousel {
     position: relative;
     width: 400px;
-    height: 30vh;
+    height: 500px;
     overflow: hidden;
     margin-right: 20px;
 }
@@ -146,6 +146,7 @@ body {
     }
     30% {
         transform: translateX(0);
+        
         opacity: 1;
     }
     70% {
@@ -154,7 +155,6 @@ body {
     }
     100% {
         transform: translateX(100%);
-        transform: scale(75%);
         opacity: 0;
     }
 }
@@ -204,19 +204,25 @@ body {
 
 
   .team-container {
-    margin:5%;
+    margin-top: 5%;
     display: flex;
     flex-wrap: wrap;                  /*  allow items to wrap  */
     justify-content: center;
     gap: 25px ;
   }
   .team-member {
+    display: none; /* Hide all team members by default */
     flex-basis: calc(100% - 10x); /*  subtract the margin from the width  */
     color: white;
     margin: 10px;
     box-sizing: border-box; 
     text-align: center;
   }
+
+  .team-member.active{
+    display: block; /* Show active team members */
+  }
+
   .team-member img {
     width: 400px;
     height: auto;
@@ -234,3 +240,58 @@ body {
     color: white;
     font-size: 1vh;
   }
+
+.RoleButtons {
+  display: flex;
+  justify-content: center; /* Center the buttons horizontally */
+  align-items: center; /* Center the buttons vertically if needed */
+  gap: 10px; /* Add some space between the buttons */
+  margin-top: 20px; /* Optional: Add some top margin */
+}
+
+.RoleButton {
+  font-family: "MainFont";
+  font-size: 17px;
+  background: transparent;
+  border: none;
+  padding: 1em 1.5em;
+  color: #ffedd3;
+  text-transform: uppercase;
+  position: relative;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.RoleButton::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: #ffc506;
+  transition: 0.5s ease;
+}
+
+.RoleButton:hover,
+.RoleButton.active {
+  color: #ffc506;
+  transition-delay: 0.1s;
+}
+
+.RoleButton:hover::before,
+.RoleButton.active::before {
+  width: 100%;
+}
+
+.RoleButton::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 0;
+  width: 100%;
+  background-color: #ffc506;
+  transition: 0.4s ease;
+  z-index: -1;
+}
