@@ -1,12 +1,18 @@
 /*---------------Netivigation Bar--------------*/
 /*พื้นหลังแท้กสีดำ*/
+
+@font-face {
+font-family: "MainFont";
+src:url(https://github.com/wt-imonnu/MauLaTy/blob/Template/Font/TH%20K2D%20July8.ttf); 
+}
+
 .topnav {
     background-color: #333;
     overflow: hidden;
     position: fixed;
     top: 0;
     width: 100%;
-    font-family: TH K2D July8;
+    font-family: "MainFont";
   }
   
   /* กำหนดแท้ก nav a ทั่วไป */
@@ -42,10 +48,10 @@
   .topnav a.text {
     float: left;
     text-align: left;
+    background-color: #333;
     margin-left: 10px;
     color: #f2f2f2;
-    background-color: #333;
-    font-family:TH K2D July8;
+    font-family: "MainFont";
   }
 
 
@@ -83,7 +89,8 @@ html {
   
 
 body {
-  flex-direction: column; /* Stack sections vertically */ 
+  flex-direction: column; /* Stack sections vertically */
+  background-color: black;
 }
 
 .headertext
@@ -93,7 +100,7 @@ body {
 
 .container {
     padding: 0 16px;
-    font-family: 'TH K2D July8';
+    font-family: "MainFont";
     display: flex;
     align-items: center; /* Vertically centers the items */
     justify-content: center; /* Horizontally centers the items */
