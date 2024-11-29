@@ -1,4 +1,4 @@
-const words = ["Developers", "Motion Designers", "Video Editors", "Content Writers", "Marketing Strategists"];
+const words = ["Content Writers", "Artists", "3D Modelers", "Web Designers", "Marketing Strategists", "Character Designers", "Photographers", "Programmers"];
 let wordIndex = 0;
 let charIndex = 0;
 const typingText = document.getElementById('typing-text');
