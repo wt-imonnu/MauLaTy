@@ -2,7 +2,7 @@ const words = ["Content Writers", "Artists", "3D Modelers", "Web Designers", "Ma
 let wordIndex = 0;
 let charIndex = 0;
 const typingText = document.getElementById('typing-text');
-const totalDuration = 2000; // Total duration for typing and erasing each word in milliseconds
+const totalDuration = 3000; // Total duration for typing and erasing each word in milliseconds
 
 function type() {
     const typingSpeed = totalDuration / (words[wordIndex].length * 2); // Adjust speed based on word length

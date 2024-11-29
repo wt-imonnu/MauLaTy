@@ -13,12 +13,13 @@ src:url(https://github.com/wt-imonnu/MauLaTy/blob/Template/Font/TH%20K2D%20July8
     top: 0;
     width: 100%;
     font-family: "MainFont";
+    z-index: 10000;
   }
   
   /* กำหนดแท้ก nav a ทั่วไป */
   .topnav a {
     float: right;
-    color: #f2f2f2;
+    color: #b36565;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -90,7 +91,7 @@ html {
 
 body {
   flex-direction: column; /* Stack sections vertically */
-  background-color: black;
+  background-image: radial-gradient(#3e2a7b, #140d27);
 }
 
 .headertext
@@ -99,14 +100,13 @@ body {
 }
 
 .container {
-  padding: 0 16px;
   font-family: "MainFont";
   display: flex;
   align-items: center; /* Vertically centers the items */
   justify-content: center; /* Horizontally centers the items */
   margin-top: 50px;
   height: 500px;
-  background-color: gray;
+  background-color: #4b38d0;
 }
 
 .carousel {
@@ -151,17 +151,17 @@ body {
 }
 
 @keyframes fadeIn {
-  0%, 100% {
+  0%, 12.5%, 100% {
       opacity: 0;
-      
   }
-  12.5%, 37.5% {
+  12.5%, 25% {
       opacity: 1;
   }
-  50%, 87.5% {
+  25%, 87.5% {
       opacity: 0;
   }
 }
+
 .text-container {
   position: relative;
   font-size: 2.5vw;
@@ -171,16 +171,29 @@ body {
 .typing-text {
   margin-left: 1vw;
   font-size: 2.5vw;
-  font-weight: 900;
+  font-weight: 1000;
   max-width: 100%;
   position: absolute;
   display: inline-block;
-  color:red;
+  color:orange;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px orange, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px orange, 0 0 40px orange, 0 0 50px orange, 0 0 60px orange, 0 0 70px orange, 0 0 80px orange;
+  }
 }
 
 .typing-text::after {
   content: "|";
-  background-color: #b74b4b;
+  background-color: orange;
   position: relative;
   width: 15px;
   height: 100%;
@@ -215,11 +228,13 @@ body {
   }
   .team-member {
     display: none; /* Hide all team members by default */
-    flex-basis: calc(100% - 10x); /*  subtract the margin from the width  */
+    flex-basis: calc(100% - 10); /*  subtract the margin from the width  */
     color: white;
     margin: 10px;
     box-sizing: border-box; 
     text-align: center;
+    word-wrap: break-word;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   }
 
   .team-member.active{
@@ -227,21 +242,24 @@ body {
   }
 
   .team-member img {
-    width: 400px;
+    width: 500px;
     height: auto;
-    border-radius: 50%;
   }
   .team-member .name {
     color: red;
     font-weight: bolder;
     font-size: 2vh;
+    word-break: break-all;
   }
   .team-member .title {
     color: grey;
+    word-break: break-all;
   }
   .team-member .detail {
     color: white;
     font-size: 1vh;
+    word-break: break-all;
+    margin-bottom: 20px;
   }
 
 .RoleButtons {
@@ -255,10 +273,9 @@ body {
 .RoleButton {
   font-family: "MainFont";
   font-size: 17px;
-  background: transparent;
   border: none;
   padding: 1em 1.5em;
-  color: #ffedd3;
+  color: #0a2244;
   text-transform: uppercase;
   position: relative;
   transition: 0.5s ease;
@@ -267,18 +284,19 @@ body {
 
 .RoleButton::before {
   content: "";
+  border-radius: 15px;
   position: absolute;
   left: 0;
-  bottom: 0;
-  height: 2px;
+  bottom: 0px;
+  height: 4px;
   width: 0;
-  background-color: #ffc506;
+  background-color: orange;
   transition: 0.5s ease;
 }
 
 .RoleButton:hover,
 .RoleButton.active {
-  color: #ffc506;
+  color: Orange;
   transition-delay: 0.1s;
 }
 
@@ -294,7 +312,7 @@ body {
   bottom: 0;
   height: 0;
   width: 100%;
-  background-color: #ffc506;
+  background-color: orange;
   transition: 0.4s ease;
   z-index: -1;
 }
