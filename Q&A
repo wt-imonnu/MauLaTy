@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar Talk</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2c2f33;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            flex-direction: column;
+        }
+        .header {
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+            width: 100%;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px;
+            font-size: 18px;
+        }
+        .tab {
+            cursor: pointer;
+            padding: 10px 20px;
+            border: 1px solid white;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .tab.active {
+            background-color: white;
+            color: #2c2f33;
+        }
+        .section {
+            display: none;
+            padding: 20px;
+            margin: 20px;
+            background-color: #36393f;
+            border-radius: 5px;
+            max-width: 500px; /* Restrict width */
+            width: 100%;
+            overflow-y: auto; /* Scrollable */
+            max-height: 400px; /* Limit height */
+        }
+        .section.active {
+            display: block;
+        }
+        .comment-section {
+            margin-top: 20px;
+            border: 1px solid #555;
+            padding: 20px;
+            background-color: #444;
+            border-radius: 5px;
+            max-height: 200px;
+            overflow-y: auto; /* Makes the comments section scrollable */
+        }
+        .comment {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #555;
+    display: flex;
+    flex-direction: column;  /* Stack username and text vertically */
+    align-items: flex-start;
+    justify-content: flex-start;
+    word-wrap: break-word;  /* Ensure long words break and wrap */
+    overflow-wrap: break-word; /* Break long words */
+    word-break: break-word; /* Avoid overflow */
+}
+
+.comment .username {
+    font-weight: bold;
+    color: #7289da;
+    margin-bottom: 5px; /* Add some space between username and text */
+}
+
+.comment .comment-text {
+    text-align: left;
+    word-wrap: break-word;  /* Ensure long comment text wraps */
+    margin-bottom: 10px;
+}
+
+        }
+        .comment img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .comment .username {
+    font-weight: bold;
+    color: #7289da;
+    margin-bottom: 5px; /* Add some space between username and text */
+}
+
+        textarea {
+            width: calc(100% - 20px);
+            height: 100px;
+            resize: none;
+            box-sizing: border-box;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background-color: #36393f;
+            color: white;
+            word-wrap: break-word;  /* Handle long text properly */
+            overflow-wrap: break-word;
+            word-break: break-word;
+            white-space: pre-wrap; /* Text will wrap normally */
+            max-height: 200px; /* Set a max height for textareas */
+        }
+        .submit-button {
+            background-color: #7289da;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            margin-top: 10px;
+            width: 100%;
+        }
+        .submit-button:hover {
+            background-color: #5e73a3;
+        }
+        .text-link {
+            cursor: pointer;
+            color: #7289da;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        .text-link:hover {
+            color: #5e73a3;
+        }
+        .delete-btn {
+            cursor: pointer;
+            background-color: transparent;
+            color: gray;
+            border: none;
+            font-size: 20px;
+        }
+        .delete-btn:hover {
+            color: red;
+        }
+        .comment-text {
+            flex-grow: 1;
+            text-align: left;
+            word-wrap: break-word;  /* Ensure long comment text wraps */
+        }
+        .question-card {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            background-color: #3a3f47;
+            word-wrap: break-word;  /* Wrap long question/answer text */
+            overflow-wrap: break-word; /* Break long words */
+        }
+        .new-question-container {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #444;
+            border: 1px solid #555;
+            border-radius: 5px;
+        }
+        .new-question-input {
+            width: calc(100% - 20px);
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #36393f;
+            color: white;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            word-break: break-word;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>- Bar Talk -</h1>
+        <div class="tabs">
+            <span class="text-link" onclick="showSection('qna')">Q&A</span>
+            <span class="text-link" onclick="showSection('review')">Review</span>
+        </div>
+    </div>
+
+    <!-- Q&A Section -->
+    <div id="qna" class="section">
+        <h2>Q&A</h2>
+        <div id="question-list">
+            <!-- Predefined Questions will be loaded here -->
+        </div>
+        <div class="new-question-container">
+            <input id="newQuestionInput" class="new-question-input" type="text" placeholder="Ask a new question...">
+            <button class="submit-button" onclick="addNewQuestion()">Add Question</button>
+        </div>
+    </div>
+
+  <!-- Review Section -->
+<div id="review" class="section">
+    <h2>Review Section</h2>
+
+    <!-- User Profile -->
+    <div class="profile-container">
+        <label for="profileName">Name: </label>
+        <input id="profileName" type="text" placeholder="Enter your name">
+        <label>
+            <input type="checkbox" id="anonymousCheckbox"> Anonymous
+        </label>
+    </div>
+
+    <!-- Review Input -->
+    <textarea id="reviewInput" placeholder="Write a review..." rows="4"></textarea>
+    <button class="submit-button" onclick="addComment('review')">Submit</button>
+
+    <!-- Review Comments Section -->
+    <div id="comments-review" class="comment-section">
+        <!-- Comments will appear here -->
+    </div>
+</div>
+
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        function loadQuestions() {
+            const predefinedQuestions = [
+                { question: "มีสั่งยังไง ", answer: "สามารถสั่งผ่านเว็บไซต์ หรือไลน์ได้ค่ะ" },
+                { question: "จ่ายทางไหนได้บ้าง ", answer: "รับชำระผ่านธนาคาร, พร้อมเพย์, และบัตรเครดิตค่ะ" },
+                { question: "มีคอมมิสชั่นไหม ", answer: "คอมมิสชั่นสามารถต่อรองได้ตามความเหมาะสมค่ะ" },
+                { question: "ใช้เชิงพานิชได้ป่าว", answer: "สามารถใช้ในเชิงพาณิชย์ได้หลังจากตกลงเงื่อนไขค่ะ" }
+            ];
+
+            const questionList = document.getElementById('question-list');
+            questionList.innerHTML = '';
+
+            predefinedQuestions.forEach((item, index) => {
+                const questionCard = document.createElement('div');
+                questionCard.className = 'question-card';
+
+                const questionTitle = document.createElement('h3');
+                questionTitle.textContent = `Q${index + 1}: ${item.question}`;
+                questionCard.appendChild(questionTitle);
+
+                const preAnswer = document.createElement('p');
+                preAnswer.textContent = `A: ${item.answer}`;
+                questionCard.appendChild(preAnswer);
+
+                const commentSection = document.createElement('div');
+                commentSection.className = 'comment-section';
+
+                const commentsDiv = document.createElement('div');
+                commentsDiv.className = 'comments';
+                commentSection.appendChild(commentsDiv);
+
+                const commentInput = document.createElement('textarea');
+                commentInput.placeholder = 'Write an answer...';
+                commentInput.rows = 2;
+                commentInput.className = 'comment-input';
+                commentSection.appendChild(commentInput);
+
+                const submitBtn = document.createElement('button');
+                submitBtn.className = 'submit-button';
+                submitBtn.textContent = 'Submit';
+                submitBtn.onclick = function() {
+                    const commentText = commentInput.value;
+                    if (!commentText.trim()) return;
+
+                    const commentDiv = document.createElement('div');
+                    commentDiv.className = 'comment';
+
+                    const username = document.createElement('span');
+                    username.className = 'username';
+                    username.textContent = 'User';
+                    commentDiv.appendChild(username);
+
+                    const text = document.createElement('p');
+                    text.className = 'comment-text';
+                    text.textContent = commentText;
+                    commentDiv.appendChild(text);
+
+                    const deleteBtn = document.createElement('button');
+                    deleteBtn.className = 'delete-btn';
+                    deleteBtn.innerHTML = '&times;';
+                    deleteBtn.onclick = function() {
+                        commentDiv.remove();
+                    };
+                    commentDiv.appendChild(deleteBtn);
+
+                    commentsDiv.appendChild(commentDiv);
+                    commentInput.value = '';
+                };
+
+                commentSection.appendChild(submitBtn);
+                questionCard.appendChild(commentSection);
+                questionList.appendChild(questionCard);
+            });
+        }
+
+        function addNewQuestion() {
+    const newQuestionInput = document.getElementById('newQuestionInput');
+    const newQuestion = newQuestionInput.value.trim();
+
+    // Check if the input is not empty
+    if (newQuestion) {
+        // Create a new question card
+        const questionList = document.getElementById('question-list');
+        const questionIndex = questionList.children.length + 1;  // Increment question number
+        const questionCard = document.createElement('div');
+        questionCard.className = 'question-card';
+
+        // Create the question title
+        const questionTitle = document.createElement('h3');
+        questionTitle.textContent = `Q${questionIndex}: ${newQuestion}`;
+        questionCard.appendChild(questionTitle);
+
+        // Create a comment section
+        const commentSection = document.createElement('div');
+        commentSection.className = 'comment-section';
+
+        const commentsDiv = document.createElement('div');
+        commentsDiv.className = 'comments';
+        commentSection.appendChild(commentsDiv);
+
+        const commentInput = document.createElement('textarea');
+        commentInput.placeholder = 'Write an answer...';
+        commentInput.rows = 2;
+        commentInput.className = 'comment-input';
+        commentSection.appendChild(commentInput);
+
+        const submitBtn = document.createElement('button');
+        submitBtn.className = 'submit-button';
+        submitBtn.textContent = 'Submit';
+        submitBtn.onclick = function() {
+            const commentText = commentInput.value.trim();
+            if (!commentText) return;
+
+            const commentDiv = document.createElement('div');
+            commentDiv.className = 'comment';
+
+            const username = document.createElement('span');
+            username.className = 'username';
+            username.textContent = 'User';
+            commentDiv.appendChild(username);
+
+            const text = document.createElement('p');
+            text.className = 'comment-text';
+            text.textContent = commentText;
+            commentDiv.appendChild(text);
+
+            const deleteBtn = document.createElement('button');
+            deleteBtn.className = 'delete-btn';
+            deleteBtn.innerHTML = '&times;';
+            deleteBtn.onclick = function() {
+                commentDiv.remove();
+            };
+            commentDiv.appendChild(deleteBtn);
+
+            commentsDiv.appendChild(commentDiv);
+            commentInput.value = '';  // Clear input field after submission
+        };
+
+        commentSection.appendChild(submitBtn);
+        questionCard.appendChild(commentSection);
+
+        // Add the new question card to the question list
+        questionList.appendChild(questionCard);
+
+        // Clear the input field after adding the question
+        newQuestionInput.value = '';
+    } else {
+        alert('Please enter a valid question.');
+    }
+}
+
+
+function addComment(section) {
+    const reviewInput = document.getElementById('reviewInput');
+    const commentText = reviewInput.value.trim();
+    if (!commentText) return;
+
+    const commentDiv = document.createElement('div');
+    commentDiv.className = 'comment';
+
+    const username = document.createElement('span');
+    username.className = 'username';
+    username.textContent = document.getElementById('profileName').value || 'Anonymous';
+    commentDiv.appendChild(username);
+
+    const text = document.createElement('p');
+    text.className = 'comment-text';
+    text.textContent = commentText;
+    commentDiv.appendChild(text);
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.className = 'delete-btn';
+    deleteBtn.innerHTML = '&times;';
+    deleteBtn.onclick = function() {
+        commentDiv.remove();
+    };
+    commentDiv.appendChild(deleteBtn);
+
+    // Append the new comment to the review comments section
+    document.getElementById('comments-review').appendChild(commentDiv);
+
+    // Clear the review input field after submission
+    reviewInput.value = '';
+}
+
+
+        // Initial load of Q&A section
+        loadQuestions();
+
+        // Set default section to Q&A
+        showSection('qna');
+    </script>
+</body>
+</html>
