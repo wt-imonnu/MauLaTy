@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+body {
+    background-color: rgb(18, 3, 27);
+    font-family: "Raleway",sans-serif;
+}
+
+.container {
+    width: 85vw;
+    margin: 0 auto;
+}
+.logo{
+    display: flex;
+    align-items: center;
+}
+.logo img{
+    width: 50px;
+}
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #000;
+    color: white;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul li a {
+    border-left: 2px solid white;
+    text-decoration: none;
+    color: white;
+    padding: 0 20px;
+}
+nav ul li a:hover {
+    color: #ff00c8;
+}
+section {
+    height: auto;
+}
+.header-name:nth-child(1) h1 {
+    color: white;
+    font-size: 6vw;
+}
+
+.header-name:nth-child(2) h1 {
+    color: white;
+    font-size: 4vw;
+}
+
+/*-----custom-select-----*/
+.adrop {
+    border: none;
+    text-decoration: none;
+    padding: 0 1px;
+    color: white;
+    text-align: left;
+}
+
+.dropdown-wrapper {
+    position: relative;
+    min-width: 150px;
+}
+
+.dropdown-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.dropdown-btn:hover {
+    color: #ff00c8;
+}
+
+.dropdown-menu {
+    position: absolute;
+    right: 0;
+    width: 100%;
+    margin-top: 5px;
+    padding: 5px 0;
+    background-color: #000;
+    box-shadow: 0 5px 15px #190161;
+    opacity: 0.2;
+    transform: scale(0);
+    transform-origin: top;
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.3s ease;
+}
+
+
+
+.dropdown-menu.open {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.dropdown-menu .item {
+    padding: 8px 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.dropdown-menu .item:hover {
+    background-color: #555;
+}
+
+.dropdown-menu .item.active {
+    font-weight: bold;
+}
