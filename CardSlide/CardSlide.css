@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+
+}
+
+.BD {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.card-wrapper {
+    max-width: 100%;
+    margin: 0 150px 35px;
+    padding: 20px 10px;
+    overflow: hidden;
+}
+
+.card-list .card-item .card-image:active {
+    cursor: grabbing;
+}
+
+.card-image {
+    width: 50%;
+    height: 150px;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card-wrapper .swiper-pagination-bullet {
+    height: 13px;
+    width: 13px;
+    opacity: 0.5;
+    background: #ffffff;
+}
+
+.card-wrapper .swiper-pagination-bullet-active {
+    opacity: 1;
+}
+
+.card-wrapper .swiper-slide-button {
+    color: #ffffff;
+    margin: -35px 100px 0 100px;
+}
+
+@media screen and (max-width: 768px) {
+    .card-wrapper {
+        margin: 0 10px 25px;
+    }
+
+    .card-wrapper .swiper-slide-button {
+        display: none;
+    }
+}
+}
