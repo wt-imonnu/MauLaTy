@@ -6,56 +6,43 @@ font-family: "MainFont";
 src:url(https://github.com/wt-imonnu/MauLaTy/blob/Template/Font/TH%20K2D%20July8.ttf); 
 }
 
-.topnav {
-    background-color: #333;
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    font-family: "MainFont";
-    z-index: 10000;
-  }
-  
-  /* กำหนดแท้ก nav a ทั่วไป */
-  .topnav a {
-    float: right;
-    color: #b36565;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  
-  /* เปลี่ยนสีถ้าเม้าวาง */
-  .topnav a:hover {
-    background-color: #f2406650;
-    color: #f2f2f2;
-  }
-  
-  /* ช่องโลโก้ */
-  .topnav a.logo {
-    float: left;
-    background-color: #f24066;
-    padding: 0;
-  }
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #000;
+  color: white;
+  z-index: 10000;
+}
 
-  /* ภาพโลโก้ */
-  .topnav a.logo img{
-    height: 50px;
-    vertical-align: middle;
-  }
+.logo img {
+  width: 50px;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+  align-items: center;
+}
 
-  /* text ชื่อบริษัท */
-  .topnav a.text {
-    float: left;
-    text-align: left;
-    background-color: #333;
-    margin-left: 10px;
-    color: #f2f2f2;
-    font-family: "MainFont";
-  }
+nav ul {
+  display: flex;
+}
 
+nav ul li {
+  list-style: none;
+}
 
+nav ul li a {
+  border-left: 2px solid white;
+  text-decoration: none;
+  color: white;
+  padding: 0 20px;
+}
+
+nav ul li a:hover {
+  color: #ff00c8;
+}
 
 
 /*---------------Back To Top--------------*/

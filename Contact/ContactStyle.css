@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+@font-face {
+font-family: "MainFont";
+src:url(https://github.com/wt-imonnu/MauLaTy/blob/Template/Font/TH%20K2D%20July8.ttf); 
+}   
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: rgb(41, 40, 40);
+    font-family: "MainFont";
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the body takes at least the full height of the viewport */
+    margin: 0;
+}
+
+.container {
+    width: 80vw;
+    margin: 0 auto;
+    display:flex;
+    justify-content: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.logo img {
+    width: 50px;
+}
+.banner-img {
+  margin: 50px 0;
+    display: flex;
+    justify-content: center;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #000;
+    color: white;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul li a {
+    border-left: 2px solid white;
+    text-decoration: none;
+    color: white;
+    padding: 0 20px;
+}
+
+nav ul li a:hover {
+    color: #ff00c8;
+}
+
+main body {
+    font-family: "MainFont";
+    background-color: #f4f4f4;
+}
+
+.form-section {
+    margin-right: 20px;
+    margin-top: 50px;
+    margin-left: 100px;
+    color: #ccc;
+}
+
+
+input[type=text], select, textarea {
+width: 100%;
+padding: 12px;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+margin-top: 6px;
+margin-bottom: 16px;
+resize: vertical;
+}
+
+input[type=submit] {
+background-color: #04AA6D;
+color: white;
+padding: 12px 20px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+input[type=submit]:hover {
+background-color: #45a049;
+}
+
+.form-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap */
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 10vh;
+    flex: 1; /* Allow the form container to grow and take available space */
+}
+
+.form-content {
+    width: 400px;
+    padding: 20px;
+    background: #5a5959;
+    border: 3px solid;
+    border-image-source: linear-gradient(to bottom, #110061, #4e1088, #ec3379);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border-image-slice: 1;
+    color: #ffffff;
+    margin-left: 100px;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    justify-content: center;
+}
+
+.form-content:nth-child(1),
+.form-content:nth-child(2) {
+    flex-grow: 1;
+}
+h1 {
+font-size: 3em;
+text-shadow: 2px 2px 16px black;
+}
+
+h4 {
+    font-size: 3em;
+    text-shadow: 2px 2px 16px black;
+    margin-bottom: 5px;
+    }
+    
+
+h2 {
+text-align: center;
+margin-bottom: 20px;
+font-size: 1.5em;
+}
+
+form {
+display: flex;
+flex-direction: column;
+}
+
+
+input, textarea, select {
+font-size: 1em;
+padding: 10px;
+margin-bottom: 15px;
+border: 1px solid #ccc;
+border-radius: 5px;
+background-color: #3b3b3b;
+color: white;
+}
+
+textarea {
+resize: none;
+height: 80px;
+}
+
+.phone-input {
+display: flex;
+gap: 10px;
+}
+
+button {
+background-color: #f35b9c;
+color: white;
+font-size: 1em;
+padding: 10px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s;
+}
+
+button:hover {
+background-color: #d14d85;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    display: none; /* Initially hide the footer */
+    position: fixed;
+    bottom: 0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.footer-content p {
+    margin: 0;
+    padding: 0;
+}
+
+.socials {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0 0;
+    display: flex;
+    justify-content: center;
+}
+
+.socials li {
+    margin: 0 10px;
+}
+
+.socials a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.socials a:hover {
+    color: #ff6347;
+}
