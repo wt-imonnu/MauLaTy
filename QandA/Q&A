@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar Talk</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            color: #ffffff;
+            background-color: #333;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .navigation {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .navigation button {
+            padding: 10px 20px;
+            background-color: #501788;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .navigation button:hover {
+            background-color: #361058;
+        }
+        .section {
+            display: none;
+            padding: 20px 0;
+        }
+        .section.active {
+            display: block;
+        }
+        .qa-section, .review-section {
+            text-align: center;
+        }
+        .qa-section .question, .review-section .review-title {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .qa-section .answer, .review-section .review-content, .review-section .review-author {
+            margin-top: 10px;
+        }
+        .review-author {
+            font-style: italic;
+            color: #ffffff;
+        }
+        .box {
+            border: 2px solid #501788;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #626262;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 20px auto;
+        }
+        .contact-box {
+            display: none;
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 400px;
+            border: 1px solid #501788;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #f9f4fc;
+        }
+        .contact-box h2 {
+            text-align: center;
+            margin-top: 0;
+        }
+        .contact-box textarea {
+            width: 94%;
+            height: 100px;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            resize: none;
+        }
+        .contact-box button {
+            width: 100%;
+            padding: 10px;
+            background-color: #5b338f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .contact-box button:hover {
+            background-color: #361058;
+        }
+    </style>
+</head>
+<body>
+    <h1>- Bar Talk -</h1>
+
+    <div class="navigation">
+        <button onclick="showSection('qa')">Q&A Section</button>
+        <button onclick="showSection('review')">Review Section</button>
+    </div>
+
+    <div id="qa" class="section active box">
+        <h2 style="text-align: center;">Q&A Section</h2>
+        <div class="qa-section">
+            <div class="question">Q1: คำถาม 1 ?</div>
+            <div class="answer">A1: Waiting for an answer...</div>
+        </div>
+        <div class="qa-section">
+            <div class="question">Q2: คำถาม 2 ?</div>
+            <div class="answer">A2: Waiting for an answer...</div>
+        </div>
+    </div>
+
+    <div id="review" class="section box">
+        <h2 style="text-align: center;">Review Section</h2>
+        <div class="review-section">
+            <div class="review-title">Review 1: Amazing Concept</div>
+            <div class="review-content">This is a fantastic idea, and the conversations are really insightful!</div>
+            <div class="review-author">- Alex</div>
+        </div>
+        <div class="review-section">
+            <div class="review-title">Review 2: Highly Recommend</div>
+            <div class="review-content">Engaging discussions, and the Q&A format is easy to follow.</div>
+            <div class="review-author">- Jamie</div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button onclick="toggleContactBox()">Having problem?</button>
+    </div>
+
+    <div id="contactBox" class="contact-box">
+        <h2>Contact staff</h2>
+        <textarea id="messageInput" placeholder="Describe your problem..."></textarea>
+        <button onclick="clearMessage()">Send</button>
+    </div>
+
+    <script>
+        function toggleContactBox() {
+            const contactBox = document.getElementById('contactBox');
+            contactBox.style.display = contactBox.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function clearMessage() {
+            const messageBox = document.getElementById('messageInput');
+            messageBox.value = '';
+        }
+
+        function showSection(section) {
+            var sections = document.querySelectorAll('.section');
+            sections.forEach(function (sec) {
+                sec.classList.remove('active');
+            });
+
+            var selectedSection = document.getElementById(section);
+            selectedSection.classList.add('active');
+        }
+
+        showSection('qa');
+    </script>
+</body>
+</html>
