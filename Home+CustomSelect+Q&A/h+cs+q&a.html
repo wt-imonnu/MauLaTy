@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="h+cs+q&a.css"> <!--import CSS-->
+    <script src="cs.js" defer></script>
+    <title>HOME</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css"
+        integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <section id="up"></section> <!--กำหนดจุดบนข้องเว็บ ให้เหนือ body อยู่บนสุด-->
+
+<!----Nav bar + Custom Select-->
+    <header style="z-index: 999;">
+        <nav>
+            <div class="logo">
+                <img src="LOGO2.png" alt="logo"><span>Mau La Ty MultiMedia</span>
+            </div>
+            <ul>
+                <li class="dropdown-wrapper" style="z-index: 998;">
+                    <div class="dropdown-btn">
+                        <span id="selected-item">Product</span>
+                        <span style="margin-right: 15px;"><i class="fa-solid fa-caret-down"></i></span>
+                    </div>
+
+                    <div class="dropdown-menu">
+                        <div class="item"><a class="adrop" href="https://youtu.be/tRwHpyOq4P4?si=r1ops0T47VrmuCNn" target="_blank">Graphic</a></div>
+                        <div class="item"><a class="adrop" href="https://youtu.be/YJkOxWVn0SU?si=E9qaNiTBh1wnJsEs" target="_blank">3D &Animation</a></div>
+                        <div class="item"><a class="adrop" href="https://youtu.be/zuoVd2QNxJo?si=4di0KdPVnJGGgc91" target="_blank">Production</a></div>
+                    </div>
+                </li>
+                <li><a href="">About us</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<!--ถามตอบของมีน-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar Talk</title>
+    <link rel="stylesheet" href="h+cs+q&a.css">
+</head>
+<body>
+    <h1>- Bar Talk -</h1>
+
+    <div class="navigation">
+        <button onclick="showSection('qa')">Q&A Section</button>
+        <button onclick="showSection('review')">Review Section</button>
+    </div>
+
+    <div id="qa" class="section active box">
+        <h2 style="text-align: center;">Q&A Section</h2>
+        <div class="qa-section">
+            <div class="question">Q1: คำถาม 1 ?</div>
+            <div class="answer">A1: Waiting for an answer...</div>
+        </div>
+        <div class="qa-section">
+            <div class="question">Q2: คำถาม 2 ?</div>
+            <div class="answer">A2: Waiting for an answer...</div>
+        </div>
+    </div>
+
+    <div id="review" class="section box">
+        <h2 style="text-align: center;">Review Section</h2>
+        <div class="review-section">
+            <div class="review-title">Review 1: Amazing Concept</div>
+            <div class="review-content">This is a fantastic idea, and the conversations are really insightful!</div>
+            <div class="review-author">- Alex</div>
+        </div>
+        <div class="review-section">
+            <div class="review-title">Review 2: Highly Recommend</div>
+            <div class="review-content">Engaging discussions, and the Q&A format is easy to follow.</div>
+            <div class="review-author">- Jamie</div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button onclick="toggleContactBox()">Having problem?</button>
+    </div>
+
+    <div id="contactBox" class="contact-box">
+        <h2>Contact staff</h2>
+        <textarea id="messageInput" placeholder="Describe your problem..."></textarea>
+        <button onclick="clearMessage()">Send</button>
+    </div>
+
+    <script>
+        function toggleContactBox() {
+            const contactBox = document.getElementById('contactBox');
+            contactBox.style.display = contactBox.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function clearMessage() {
+            const messageBox = document.getElementById('messageInput');
+            messageBox.value = '';
+        }
+
+        function showSection(section) {
+            var sections = document.querySelectorAll('.section');
+            sections.forEach(function (sec) {
+                sec.classList.remove('active');
+            });
+
+            var selectedSection = document.getElementById(section);
+            selectedSection.classList.add('active');
+        }
+
+        showSection('qa');
+    </script>
+
+<!--ฟุตเตอร์ของเทน-->
+    <footer id="footer">
+        <div class="footer-content">
+            <p>&copy; Mau La Ty Media LTD. All rights reserved.</p>
+            <ul class="socials">
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        window.onscroll = function() {
+            var footer = document.getElementById("footer");
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                footer.style.display = "block";
+            } else {
+                footer.style.display = "none";
+            }
+        };
+    </script>  
+</body>
+
+</html>
