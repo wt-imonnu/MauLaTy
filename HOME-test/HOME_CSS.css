@@ -1,0 +1,444 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Raleway",sans-serif;
+    max-width: 1920px;
+
+}
+
+/* ---------------Nevigation Bar----------------*/
+.container {
+    width: 85vw;
+    margin: 0 auto;
+    max-width: 1000px;
+}
+.logo{
+    display: flex;
+    align-items: center;
+}
+.logo img{
+    width: 50px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #000;
+    color: white;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    align-items: center;
+    z-index: 10;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul li a {
+    border-left: 2px solid white;
+    text-decoration: none;
+    color: white;
+    padding: 0 20px;
+}
+nav ul li a:hover {
+    color: #ff00c8;
+}
+section {
+    height: auto;
+}
+
+.header-name:nth-child(1) h1 {
+    color: white;
+    font-size: 4vw;
+    text-align: center;
+}
+
+.header-name:nth-child(2) h1 {
+    color: white;
+    font-size: 2vw;
+    text-align: center;
+}
+
+
+
+
+/* --------------- Parallax ----------------*/
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('HOME-bg.png') no-repeat center center / cover;
+    z-index: -10;
+    background-attachment: fixed;  /* ทำให้พื้นหลังอยู่กับที่ */
+    background-position: center;   /* จัดตำแหน่งพื้นหลังให้อยู่ตรงกลาง */
+    background-size: cover;       /* ให้พื้นหลังขยายเต็มพื้นที่ */
+}
+
+.layer-1 {
+    position: fixed;  
+    bottom: 10px;        
+    right: 0;         
+    z-index: -1;       
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-in-out;
+}
+
+.layer-1 img {
+    width: 60%;
+    height: auto;
+    transition: transform 0.1s ease;  /* เพิ่ม transition สำหรับการเลื่อน */
+}
+
+/* ตั้งค่า layer-2 ให้แสดงตั้งแต่แรก */
+.layer-2 {
+    position: fixed;    /* ตรึงตำแหน่ง */
+    bottom: -750px;         /* ชิดขอบล่าง */
+    right: 0;           /* ชิดขอบขวา */
+    z-index: -2;        /* อยู่ด้านล่างเนื้อหา */
+    width: 100%;        /* ปรับขนาดตามจอ */
+    height: auto;       /* รักษาอัตราส่วน */
+    transition: transform 0.5s ease; /* เพิ่มความนุ่มนวลในการเลื่อน */
+
+}
+
+.layer-2 img {
+    width: 100%;
+    height: auto;
+}
+
+
+
+
+
+/* --------------- Content Section ---------------- */
+.content {
+    position: relative;
+    text-align: center;
+    color: white;
+    z-index: -1;
+}
+
+.content h1 {
+    font-size: 4vw;
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+    font-family: "Caveat", sans-serif;
+}
+.content-wrapper {
+    position: relative; /* เพื่อให้องค์ประกอบภายในเลื่อนไปด้วยกัน */
+    width: 100%;
+}
+
+#bannner th {
+    height: 500px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+
+/*-----------Scroll Down---------------*/
+/* ตั้งค่าทั่วไปสำหรับ Scroll Indicator */
+.scroll-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    z-index: 10;
+    transition: opacity 0.5s ease, filter 0.5s ease; /* เพิ่ม transition */
+}
+
+/* สามเหลี่ยม */
+.triangle-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px; /* ระยะห่างระหว่างสามเหลี่ยม */
+}
+
+.triangle {
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #ffffff;
+    animation: bounce 2s infinite;
+}
+
+.triangle.second {
+    animation-delay: 0.5s; /* ทำให้เลื่อนตามกัน */
+}
+
+/* ข้อความ Scroll Down */
+.scroll-indicator p {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Keyframe สำหรับการกระเด้ง */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* เมื่อเริ่มเบลอ */
+.scroll-indicator.blur {
+    opacity: 0;
+    filter: blur(5px); /* เพิ่มความเบลอ */
+    pointer-events: none; /* ไม่ให้คลิกหรือโต้ตอบได้ */
+}
+
+
+
+
+/* ---------------Category----------------*/
+.product {
+    color: white;
+    padding: 5px;
+    margin-top: 10px;
+    margin-left: 30%;
+    margin-right: 30%;
+    border-radius: 30px;
+    background-color: #6b636327;
+    text-align: center;
+}
+
+.BG{
+    height: 5000px;
+    background: linear-gradient(to bottom, rgba(18, 3, 25, 0) 8%, rgba(18, 3, 25, 1)10%); 
+    padding: 20px; 
+    margin-top: 400px;
+    transition: margin-top 0.4s ease-in-out;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+#table-product{
+    margin-top: 20px;
+    margin-bottom: 250px;
+    border-color: #fff;
+    table-layout: fixed;
+}
+
+#neon-yellow:hover {
+  color:#ffffff;
+  text-shadow:
+    0 0 1px #fff,
+    0 0 2px #fff,
+    0 0 5px #fff,
+    0 0 9px #efc679aa,
+    0 0 12px #efc679aa,
+    0 0 15px #efc679aa,
+    0 0 18px #efc679aa,
+    0 0 20px #efc679aa;
+}
+
+#neon-pink:hover {
+    color:#ffffff;
+    text-shadow:
+      0 0 1px #fff,
+      0 0 2px #fff,
+      0 0 5px #fff,
+      0 0 9px hsla(328, 100%, 63%, 0.678),
+      0 0 12px hsla(328, 100%, 63%, 0.678),
+      0 0 15px hsla(328, 100%, 63%, 0.678),
+      0 0 18px hsla(328, 100%, 63%, 0.678),
+      0 0 20px hsla(328, 100%, 63%, 0.678);
+  }
+
+  #neon-purple:hover {
+    color:#ffffff;
+    text-shadow:
+      0 0 1px #fff,
+      0 0 2px #fff,
+      0 0 5px #fff,
+      0 0 9px hsla(270, 100%, 70%, 0.678),
+      0 0 12px hsla(270, 100%, 70%, 0.678),
+      0 0 15px hsla(270, 100%, 70%, 0.678),
+      0 0 18px hsla(270, 100%, 70%, 0.678),
+      0 0 20px hsla(270, 100%, 70%, 0.678);
+  }
+
+.detail {
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-left: 70px;
+    margin-right: 70px;
+    font-size: 1vw;  
+    text-align: center;
+}
+
+
+
+
+
+/*----------------Card Slide---------------*/
+.BD {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.card-wrapper {
+    max-width: 100%;
+    margin: 0 150px 35px;
+    padding: 20px 10px;
+    overflow: hidden;
+}
+
+.card-list .card-item .card-image:active {
+    cursor: grabbing;
+    
+}
+
+.card-image {
+  width: auto;
+    height: 150px;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card-wrapper .swiper-pagination-bullet {
+    height: 13px;
+    width: 13px;
+    opacity: 0.5;
+    background: #ffffff;
+}
+
+.card-wrapper .swiper-pagination-bullet-active {
+    opacity: 1;
+}
+
+.card-wrapper .swiper-slide-button {
+    color: #ffffff;
+    margin: -35px 100px 0 100px;
+}
+
+@media screen and (max-width: 768px) {
+    .card-wrapper {
+        margin: 0 5px 25px;
+    }
+
+    .card-wrapper .swiper-slide-button {
+        display: none;
+    }
+}
+
+/* ปุ่มพื้นฐาน */
+.btn-outline {
+    background-color: transparent; /* ไม่มีสีพื้นหลัง */
+    border: 2px solid white; /* ขอบสีขาว */
+    color: white; /* สีตัวอักษร */
+    padding: 10px 20px; /* ระยะห่างในปุ่ม */
+    font-size: 1em; /* ขนาดตัวอักษร */
+    border-radius: 20px; /* มุมโค้ง */
+    cursor: pointer; /* เปลี่ยนเป็นมือเมื่อ hover */
+    transition: all 0.3s ease; /* เพิ่มเอฟเฟกต์นุ่มนวล */
+    margin: 5px 0 10px 0;
+}
+
+/* เอฟเฟกต์เมื่อ hover */
+#yellow:hover {
+    border-color: #e8ca5c; /* ขอบเปลี่ยนเป็นสีส้ม */
+    color: #e8ca5c; /* สีตัวอักษรเปลี่ยนตาม */
+}
+
+#pink:hover {
+    border-color: #f682a3; /* ขอบเปลี่ยนเป็นสีส้ม */
+    color: #f682a3; /* สีตัวอักษรเปลี่ยนตาม */
+}
+
+#purple:hover {
+    border-color: #8c50ab; /* ขอบเปลี่ยนเป็นสีส้ม */
+    color: #8c50ab; /* สีตัวอักษรเปลี่ยนตาม */
+}
+
+
+
+
+
+
+/* ---------------Footer----------------*/
+footer{
+    position: relative;
+}
+.footermain{
+    background-color: rgb(44, 44, 44);
+
+}
+.padding{
+    padding: 10px 0;
+}
+.row2{
+    display: flex;
+    justify-content: space-between;
+}
+.row-con{
+    width: 500px;
+}
+.text-cen{
+    color:#ffffff;
+    background-color: #000;
+    padding: 20px 0;
+    text-align: center;
+}
+.arrowtop{
+    position: fixed;
+    bottom: 0;
+    margin-right: 27px;
+    margin-bottom: 80px;
+    right: 0;
+}
+.arrowtop i{
+    background: #474747;
+    color: #ffffff;
+    padding: 20px 30px;
+    border-radius: 100px;
+}
+
+h2{
+    margin-top: 20px;
+    color: #ffffff
+}
